@@ -1,36 +1,30 @@
-Задание 1. «Модель тест-кейса и репозиторий» 
+# Задание 1. «Модель тест-кейса и репозиторий»
 
-Условие
+## Условие
+
 Нужно описать сущность тест-кейс и сервис, который с ними работает.
 
-##Класс TestCase:
+## Класс TestCase
 
-поля: id (строка), title, steps (массив строк), priority ('low' | 'medium' | 'high'), isAutomated (boolean);
+**Поля:** `id` (строка), `title`, `steps` (массив строк), `priority` (`'low' | 'medium' | 'high'`), `isAutomated` (boolean);
 
-в конструкторе — валидация: title не пустой, иначе throw new Error('...');
+**В конструкторе** — валидация: `title` не пустой, иначе `throw new Error('...')`;
 
-методы:
-markAutomated() — isAutomated = true;
+**Методы:**
 
-getSummary() — строка вида: "[high] Название (3 шага, automated)".
+- `markAutomated()` — `isAutomated = true`;
+- `getSummary()` — строка вида: `"[high] Название (3 шага, automated)"`.
 
+## Класс TestCaseRepository
 
+**Поля:** `testCase` — массив TestCases
 
-##Класс TestCaseRepository:
+- `create(testCase)` — сохранить, если `id` уникален, иначе ошибка;
+- `getTestCases()` — возврат значения `testCase`
 
-поля: testCase - массив TestCases
+## Скрипт main (или тесты в node без фреймворка)
 
-create(testCase) — сохранить, если id уникален, иначе ошибка;
-
-getTestCases() - возврат значения testCase 
-
-
-##Скрипт main (или тесты в node без фреймворка):
-
-создать 3 кейса разного приоритета;
-
-вывести в консоль getTestCases() у которых приоритет high 
-
-вывести в консоль getTestCases() у которых приоритет medium 
-
-вывести в консоль getTestCases() у которых приоритет low 
+- создать 3 кейса разного приоритета;
+- вывести в консоль `getTestCases()` у которых приоритет `high`
+- вывести в консоль `getTestCases()` у которых приоритет `medium`
+- вывести в консоль `getTestCases()` у которых приоритет `low`
